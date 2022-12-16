@@ -1,0 +1,5 @@
+# VÁRIAVEL DE AMBIENTE
+@apiurl = http://localhost:3000/
+
+# TESTANDO ENDPOINTS DO USUÁRIO
+GET {{apiurl}} HTTP/1.1

@@ -1,7 +1,6 @@
 const createUser = async (req, res) => {
-  res.send;
+  const user = await req.body;
 };
-
 
 // 1°
 // const userTestRoute = async (req, res) => {
@@ -9,5 +8,6 @@ const createUser = async (req, res) => {
 // };
 
 module.exports = {
-  userTestRoute,
+  createUser,
+  // userTestRoute,
 };
