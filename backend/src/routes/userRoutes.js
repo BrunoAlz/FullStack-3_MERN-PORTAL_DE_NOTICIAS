@@ -1,9 +1,13 @@
 const router = require("express").Router();
 
-// Controller
-const { userTestRoute } = require("../controllers/userController");
 
-// Routes
-router.get("/test", userTestRoute);
+
+
+
+// 2°
+// const { userTestRoute } = require("../controllers/userController");
+
+// 3°
+// router.get("/test", userTestRoute);
 
 module.exports = router;
