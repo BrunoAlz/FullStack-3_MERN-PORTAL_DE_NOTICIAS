@@ -1,5 +1,11 @@
 # VÁRIAVEL DE AMBIENTE
 @apiurl = http://localhost:3000/
 
-# TESTANDO ENDPOINTS DO USUÁRIO
-GET {{apiurl}} HTTP/1.1
+# TESTANDO ENDPOINTS DOS USUÁRIOS
+POST {{apiurl}}Api/Users/Register HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}

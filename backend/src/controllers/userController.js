@@ -1,5 +1,6 @@
 const createUser = async (req, res) => {
   const user = await req.body;
+  res.json(user);
 };
 
 // 1°
