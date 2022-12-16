@@ -5,7 +5,7 @@ const express = require("express");
 
 const app = express();
 
-const router = require("./routes/Router.js");
+const router = require("./src/routes/Routes");
 app.use(router);
 
 app.listen(port, () => {
