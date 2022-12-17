@@ -1,8 +1,10 @@
 const router = require("express").Router();
 
-const { createUser } = require("../controllers/userController");
+const userController = require("../controllers/userController");
 
-router.post("/Register", createUser);
+router.post("/Register", userController.createUserController);
+router.post("/List", userController.getAllUsersController);
+
 
 // 2°
 // const { userTestRoute } = require("../controllers/userController");

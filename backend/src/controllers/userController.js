@@ -1,6 +1,6 @@
 const userService = require("../services/userService");
 
-const createUser = async (req, res) => {
+const createUserController = async (req, res) => {
   // 1- Extrai os dados do corpo da Requisição
   const {
     name,
@@ -13,7 +13,7 @@ const createUser = async (req, res) => {
   } = req.body;
 
   // 3- E armazena o retorno em newUser // 2- Manda os dados para o Service
-  const newUser = await userService.create(req.body);
+  const newUser = await userService.createUserService(req.body);
 
   // 4- Se o usuário não for criado por erros no servidor retorna o erro
   if (!newUser) {
@@ -38,12 +38,17 @@ const createUser = async (req, res) => {
   });
 };
 
+const getAllUsersController = async (req, res) => {
+  const users = await userService.getAllUsersService();
+}
+
 // 1°
 // const userTestRoute = async (req, res) => {
 //   res.send("Testando a rota => api/users/test");
 // };
 
 module.exports = {
-  createUser,
+  createUserController,
+  getAllUsersController,
   // userTestRoute,
 };
