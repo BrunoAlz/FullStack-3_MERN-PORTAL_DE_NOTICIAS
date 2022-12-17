@@ -1,11 +1,25 @@
 const router = require("express").Router();
-
+const {
+  validateIdMiddleware,
+  validateUserMiddleware,
+} = require("../middlewares/globalMiddlewares");
+const validate = require("../middlewares/handleValidationsErrors");
 const userController = require("../controllers/userController");
 
-router.get("/:id", userController.getUserByIdController);
 router.post("/Register", userController.createUserController);
 router.get("/List", userController.getAllUsersController);
-router.patch("/Atualizar/:id", userController.updateUserController);
+router.get(
+  "/:id",
+  validateIdMiddleware,
+  validateUserMiddleware,
+  userController.getUserByIdController
+);
+router.patch(
+  "/Atualizar/:id",
+  validateIdMiddleware,
+  validateUserMiddleware,
+  userController.updateUserController
+);
 
 // 2°
 // const { userTestRoute } = require("../controllers/userController");

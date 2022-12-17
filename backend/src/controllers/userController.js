@@ -49,9 +49,9 @@ const getUserByIdController = async (req, res) => {
   // 1- Recupera o Id passado na Requisição
   const id = req.params.id;
   // 2 Verifica se o Id da está correto
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ errors: ["Este usuário não existe."] });
-  }
+  // if (!mongoose.Types.ObjectId.isValid(id)) {
+  //   return res.status(404).json({ errors: ["Este usuário não existe."] });
+  // }
   // 4- Recupera o user retornado pelo service // 3- Passa o id para o service
   const user = await userService.getUserByIdService(id);
 
@@ -73,11 +73,13 @@ const updateUserController = async (req, res) => {
   } = req.body;
 
   // 2 Verifica se o Id da está correto
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ errors: ["Este usuário não existe."] });
-  }
+  // if (!mongoose.Types.ObjectId.isValid(id)) {
+  //   return res.status(404).json({ errors: ["Este usuário não existe."] });
+  // }
 
   // 4- Recupera o user retornado pelo service // 3- Passa o id para o service
+  // const user = await userService.getUserByIdService(id);
+
   await userService.updateUserService(
     id,
     name,

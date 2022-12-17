@@ -8,6 +8,7 @@ const validateIdMiddleware = (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ errors: ["Este usuário não existe."] });
   }
+  next();
 };
 
 const validateUserMiddleware = async (req, res, next) => {
@@ -18,6 +19,7 @@ const validateUserMiddleware = async (req, res, next) => {
   if (!user) {
     return res.status(404).json({ errors: ["Este usuário não existe."] });
   }
+  next();
 };
 
 module.exports = {
