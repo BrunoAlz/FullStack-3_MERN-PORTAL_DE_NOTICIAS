@@ -37,16 +37,15 @@ PATCH {{apiurl}}Api/Users/Atualizar/639d2a7387e3c9bddcef459c HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Richard Alves Correia",
-    "username": "RichardAlz",
-    "email": "Richard@gmail.com",
-    "password": "131288Brn@",
-    "profileImage": "https://avatars.githubusercontent.com/u/58440875?v=4",
-    "backgroundImage": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg",
-    "about": "Jogador de FriFAS!!"
-  }
+  "name": "Richard Alves Correia",
+  "username": "RichardAlz",
+  "email": "Richard@gmail.com",
+  "profileImage": "https://avatars.githubusercontent.com/u/58440875?v=4",
+  "backgroundImage": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg",
+  "about": "Jogador de FriFAsS!!"
+}
 
-RESPONSE: HTTP/1.1 200 OK
+# RESPONSE: HTTP/1.1 200 OK - DA PROBLEMA SE NÃO COMENTAR.
 
 ###
 

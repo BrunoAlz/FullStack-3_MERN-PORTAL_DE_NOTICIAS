@@ -46,21 +46,17 @@ const getAllUsersController = async (req, res) => {
 };
 
 const getUserByIdController = async (req, res) => {
-  // 1- Recupera o Id passado na Requisição
-  const id = req.params.id;
-  // 2 Verifica se o Id da está correto
-  // if (!mongoose.Types.ObjectId.isValid(id)) {
-  //   return res.status(404).json({ errors: ["Este usuário não existe."] });
-  // }
-  // 4- Recupera o user retornado pelo service // 3- Passa o id para o service
-  const user = await userService.getUserByIdService(id);
-
-  res.status(200).send(user);
+  // 1- Recupera o usuário passado pelo Middleware
+  const user = req.user;
+  
+  // 2-  retorna a response para o front 
+  res.send(user);
 };
 
 const updateUserController = async (req, res) => {
-  // 1- Recupera o Id na requisição
-  const id = req.params.id;
+  // 1- Recupera o Id na requisição, passado pelo Middleware
+  const {id, user} = req;
+  console.log(id, user);
   // 2 - Recupera os dados da Requisição
   const {
     name,
@@ -71,7 +67,7 @@ const updateUserController = async (req, res) => {
     backgroundImage,
     about,
   } = req.body;
-  
+
   // 3- O Middleware valida o Id aqui no meio da Requisição
 
   // 4- Apos a validação pelo middleware os dados é passado apra o service
@@ -88,6 +84,7 @@ const updateUserController = async (req, res) => {
 
   res.status(200).send({ message: "Usuário atualizado com Sucesso!" });
 };
+
 // 1°
 // const userTestRoute = async (req, res) => {
 //   res.send("Testando a rota => api/users/test");

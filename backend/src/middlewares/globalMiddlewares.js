@@ -18,7 +18,12 @@ const validateUserMiddleware = async (req, res, next) => {
   const user = await userService.getUserByIdService(id);
   if (!user) {
     return res.status(404).json({ errors: ["Este usuário não existe."] });
-  }
+  }  
+  // Guarda os dados buscados na requisição atual e passa para a próxima
+  // evitando que seja necessário buscar esses dados novamente.
+  req.id = id;
+  req.user = user;
+
   next();
 };
 
