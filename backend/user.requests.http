@@ -16,19 +16,15 @@ content-type: application/json
     "about": "Jogador de FriFAS!"
   }
 
-RESPONSE: HTTP/1.1 200 OK
-
 ###
 
 # 2- LISTANDO USUÀRIOS CRIADOS
 GET {{apiurl}}Api/Users/List HTTP/1.1
-RESPONSE: HTTP/1.1 200 OK
 
 ###
 
 # 3- BUSCANDO USUÁRIO POR ID
 GET {{apiurl}}Api/Users/639d2a7387e3c9bddcef459c HTTP/1.1
-RESPONSE: HTTP/1.1 200 OK
 
 ###
 
@@ -45,7 +41,6 @@ content-type: application/json
   "about": "Jogador de FriFAsS!!"
 }
 
-# RESPONSE: HTTP/1.1 200 OK - DA PROBLEMA SE NÃO COMENTAR.
-
 ###
 
+# 5 - 
