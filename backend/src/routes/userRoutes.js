@@ -3,7 +3,7 @@ const router = require("express").Router();
 const userController = require("../controllers/userController");
 
 router.post("/Register", userController.createUserController);
-router.post("/List", userController.getAllUsersController);
+router.get("/List", userController.getAllUsersController);
 
 
 // 2°

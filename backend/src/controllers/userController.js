@@ -40,6 +40,8 @@ const createUserController = async (req, res) => {
 
 const getAllUsersController = async (req, res) => {
   const users = await userService.getAllUsersService();
+
+  res.status(200).send(users)
 }
 
 // 1°
