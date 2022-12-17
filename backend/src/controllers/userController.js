@@ -58,6 +58,40 @@ const getUserByIdController = async (req, res) => {
   res.status(200).send(user);
 };
 
+const updateUserController = async (req, res) => {
+  // 1- Recupera o Id na requisição
+  const id = req.params.id;
+
+  const {
+    name,
+    username,
+    email,
+    password,
+    profileImage,
+    backgroundImage,
+    about,
+  } = req.body;
+
+  // 2 Verifica se o Id da está correto
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ errors: ["Este usuário não existe."] });
+  }
+
+  // 4- Recupera o user retornado pelo service // 3- Passa o id para o service
+  await userService.updateUserService(
+    id,
+    name,
+    username,
+    email,
+    password,
+    profileImage,
+    backgroundImage,
+    about
+  );
+
+  res.status(200).send({ message: "Usuário atualizado com Sucesso!" });
+};
+
 // 1°
 // const userTestRoute = async (req, res) => {
 //   res.send("Testando a rota => api/users/test");
@@ -67,5 +101,6 @@ module.exports = {
   createUserController,
   getAllUsersController,
   getUserByIdController,
+  updateUserController,
   // userTestRoute,
 };
