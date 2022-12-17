@@ -6,6 +6,25 @@ POST {{apiurl}}Api/Users/Register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "sample",
-    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
-}
+    "name": "Bruno Alves de Almeida",
+    "username": "BrunoAlz",
+    "email": "bruno6821@gmail.com",
+    "password": "XXXX@",
+    "profileImage": "https://avatars.githubusercontent.com/u/58440875?v=4",
+    "backgroundImage": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg",
+    "about": "Pateta aprendendo MERN e REACT"
+  }
+
+# HTTP/1.1 201 Created
+# X-Powered-By: Express
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 234
+# ETag: W/"ea-C+8xZxNunZIX0E5bTpcaILhY4Ek"
+# Date: Sat, 17 Dec 2022 02:52:18 GMT
+# Connection: close
+
+# {
+#   "message": "Usuário criado com sucesso!",
+#   "user": {
+#     "id": "639d2ee23be79f9029837f53",
+# }
