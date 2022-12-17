@@ -43,7 +43,10 @@ content-type: application/json
     "password": "131288Brn@",
     "profileImage": "https://avatars.githubusercontent.com/u/58440875?v=4",
     "backgroundImage": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg",
-    "about": "Jogador de FriFAS! e de MINECRAFT!"
+    "about": "Jogador de FriFAS!!"
   }
 
 RESPONSE: HTTP/1.1 200 OK
+
+###
+

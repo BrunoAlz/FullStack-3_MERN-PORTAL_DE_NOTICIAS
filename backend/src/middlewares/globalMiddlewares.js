@@ -6,7 +6,7 @@ const validateIdMiddleware = (req, res, next) => {
   const id = req.params.id;
   // 2 Verifica se o Id da está correto
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ errors: ["Este usuário não existe."] });
+    return res.status(404).json({ errors: ["Id de usuário incorreto."] });
   }
   next();
 };

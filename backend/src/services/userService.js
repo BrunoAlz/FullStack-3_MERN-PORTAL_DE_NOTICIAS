@@ -9,7 +9,7 @@ const getAllUsersService = () => User.find().select("-password");
 // 5- Recebe o Id passado pelo Controller // 6- Busca o usário no Banco pelo id
 const getUserByIdService = (id) => User.findById(id).select("-password");
 
-// 5- Recebe o Id passado pelo Controller // 6- Busca o usário no Banco pelo id e Faz o Update
+// 5- Recebe o Id passado pelo Controller e validado pelo Middleware
 const updateUserService = (
   id,
   name,
@@ -20,6 +20,7 @@ const updateUserService = (
   backgroundImage,
   about
 ) =>
+  // 6- Busca o usário no Banco pelo id e Faz o Update
   User.findByIdAndUpdate(
     { _id: id },
     { name, username, email, password, profileImage, backgroundImage, about }
