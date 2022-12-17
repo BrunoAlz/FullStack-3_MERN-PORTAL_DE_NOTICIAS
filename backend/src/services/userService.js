@@ -4,9 +4,13 @@ const User = require("../models/User");
 const createUserService = (body) => User.create(body);
 
 // Busca todos os usuários do Banco
-const getAllUsersService = () => User.find();
+const getAllUsersService = () => User.find().select("-password");
+
+// 5- Recebe o Id passado pelo Controller // 6- Busca o usário no Banco pelo id
+const getUserByIdService = (id) => User.findById(id).select("-password");
 
 module.exports = {
   createUserService,
   getAllUsersService,
+  getUserByIdService,
 };

@@ -2,6 +2,7 @@
 @apiurl = http://localhost:3000/
 
 # TESTANDO ENDPOINTS DOS USUÁRIOS
+# 1- CRIANDO USUARIO
 POST {{apiurl}}Api/Users/Register HTTP/1.1
 content-type: application/json
 
@@ -15,7 +16,20 @@ content-type: application/json
     "about": "Jogador de FriFAS!"
   }
 
+RESPONSE: HTTP/1.1 200 OK
+
 ###
 
-# Testando a Listagem de usuários
+# 2- LISTANDO USUÀRIOS CRIADOS
 GET {{apiurl}}Api/Users/List HTTP/1.1
+RESPONSE: HTTP/1.1 200 OK
+
+###
+
+# 3- BUSCANDO USUÁRIO POR ID
+GET {{apiurl}}Api/Users/639d2a7387e3c9bddcef459c HTTP/1.1
+RESPONSE: HTTP/1.1 200 OK
+
+###
+
+# 4- 

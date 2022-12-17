@@ -1,4 +1,5 @@
 const userService = require("../services/userService");
+const mongoose = require("mongoose");
 
 const createUserController = async (req, res) => {
   // 1- Extrai os dados do corpo da Requisição
@@ -41,8 +42,21 @@ const createUserController = async (req, res) => {
 const getAllUsersController = async (req, res) => {
   const users = await userService.getAllUsersService();
 
-  res.status(200).send(users)
-}
+  res.status(200).send(users);
+};
+
+const getUserByIdController = async (req, res) => {
+  // 1- Recupera o Id passado na Requisição
+  const id = req.params.id;
+  // 2 Verifica se o Id da está correto
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).json({ errors: ["Este usuário não existe."] });
+  }
+  // 4- Recupera o user retornado pelo service // 3- Passa o id para o service
+  const user = await userService.getUserByIdService(id);
+
+  res.status(200).send(user);
+};
 
 // 1°
 // const userTestRoute = async (req, res) => {
@@ -52,5 +66,6 @@ const getAllUsersController = async (req, res) => {
 module.exports = {
   createUserController,
   getAllUsersController,
+  getUserByIdController,
   // userTestRoute,
 };
