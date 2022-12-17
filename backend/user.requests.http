@@ -7,13 +7,13 @@ POST {{apiurl}}Api/Users/Register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Richard Alves Correia",
-    "username": "RichardAlz",
-    "email": "Richard@gmail.com",
+    "name": "José",
+    "username": "zezao",
+    "email": "zezao@gmail.com",
     "password": "131288Brn@",
     "profileImage": "https://avatars.githubusercontent.com/u/58440875?v=4",
     "backgroundImage": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg",
-    "about": "Jogador de FriFAS!"
+    "about": "DEV MONSTRO DO ML!"
   }
 
 ###
