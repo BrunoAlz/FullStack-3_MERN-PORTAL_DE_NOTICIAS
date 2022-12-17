@@ -43,4 +43,6 @@ content-type: application/json
 
 ###
 
-# 5 - 
+# TESTANDO ENDPOINTS DE AUTHENTICAÇÃO
+# 5- CRIANDO USUARIO
+POST {{apiurl}}Api/Users/Login HTTP/1.1
