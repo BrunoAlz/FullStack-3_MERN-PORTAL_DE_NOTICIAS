@@ -4,10 +4,10 @@ const User = require("../models/User");
 const createUserService = (body) => User.create(body);
 
 // Busca todos os usuários do Banco
-const getAllUsersService = () => User.find().select("-password");
+const getAllUsersService = () => User.find();
 
 // 5- Recebe o Id passado pelo Controller // 6- Busca o usário no Banco pelo id
-const getUserByIdService = (id) => User.findById(id).select("-password");
+const getUserByIdService = (id) => User.findById(id);
 
 // 5- Recebe o Id passado pelo Controller e validado pelo Middleware
 const updateUserService = (
@@ -24,7 +24,7 @@ const updateUserService = (
   User.findByIdAndUpdate(
     { _id: id },
     { name, username, email, password, profileImage, backgroundImage, about }
-  ).select("-password");
+  );
 
 module.exports = {
   createUserService,
