@@ -15,7 +15,10 @@ const loginController = async (req, res) => {
     if (!passwordIsValid) {
       return res.status(402).send({ errors: "Credenciais Inválidas" });
     }
-    res.send(user);
+
+    const token = authService.generateTokenService(user._id)
+
+    res.send({token});
   } catch (error) {
     res.send(error.message);
   }
