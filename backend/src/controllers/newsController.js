@@ -23,7 +23,20 @@ const postCreateController = async (req, res) => {
 
 const postGetAllController = async (req, res) => {
   try {
-    const news = await newsService.postGetAllService();
+    let { limit, offset } = req.query;
+
+    limit = Number(limit);
+    offset = Number(offset);
+
+    if (!limit) {
+      limit = 10;
+    }
+
+    if (!offset) {
+      offset = 0;
+    }
+
+    const news = await newsService.postGetAllService(offset, limit);
     if (news.lenght === 0) {
       return res.status(400).send({ errors: "Nehuma postagem até o momento" });
     }
