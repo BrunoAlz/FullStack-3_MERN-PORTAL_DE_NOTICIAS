@@ -134,12 +134,40 @@ const postGetByIdController = async (req, res) => {
   }
 };
 
-const postSearchControler = async (req, res) => {};
+const postSearchController = async (req, res) => {
+  try {
+    const { title } = req.query;
+
+    const news = await newsService.postSearchService(title);
+
+    if (news.length === 0) {
+      return res
+        .status(40)
+        .send({ errors: "Não existes posts com esse título" });
+    }
+
+    res.send({
+      resuts: news.map((newsItem) => ({
+        id: newsItem._id,
+        title: newsItem.title,
+        text: newsItem.text,
+        banner: newsItem.banner,
+        likes: newsItem.likes,
+        comments: newsItem.comments,
+        name: newsItem.user.name,
+        userName: newsItem.user.username,
+        profileImage: newsItem.user.profileImage,
+      })),
+    });
+  } catch (error) {
+    return res.status(500).send({ errors: error.message });
+  }
+};
 
 module.exports = {
   postCreateController,
   postGetAllController,
   postTopController,
   postGetByIdController,
-  postSearchControler,
+  postSearchController,
 };
