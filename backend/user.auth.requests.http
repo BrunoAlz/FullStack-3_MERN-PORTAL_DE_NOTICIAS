@@ -2,7 +2,7 @@
 @apiurl = http://localhost:3000/
 
 # TESTANDO ENDPOINTS DE AUTHENTICAÇÃO DO USUÁRIO
-# 1- CRIANDO USUARIO
+# 1- LOGANDO USUARIO
 POST {{apiurl}}Api/Users/Auth/Login HTTP/1.1
 content-type: application/json
 

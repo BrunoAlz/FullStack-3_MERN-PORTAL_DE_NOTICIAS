@@ -1,5 +1,4 @@
 const userService = require("../services/userService");
-const mongoose = require("mongoose");
 
 const createUserController = async (req, res) => {
   try {
