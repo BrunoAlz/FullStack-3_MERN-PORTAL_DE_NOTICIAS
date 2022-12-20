@@ -12,18 +12,24 @@ const postCreateController = async (req, res) => {
       title,
       text,
       banner,
-      user: {_id: "639d2a7387e3c9bddcef459c"}
+      user: { _id: "639d2a7387e3c9bddcef459c" },
     });
 
-    res.status(200).send("Post Criado")
+    res.status(200).send("Post Criado");
   } catch (error) {
     res.status(500).send({ errors: error.message });
   }
 };
 
-const postGetAllController = (req, res) => {
+const postGetAllController = async (req, res) => {
   try {
-    res.send("lista post ok");
+    
+    const news = await newsService.postGetAllService();
+    if (news.lenght === 0) {
+      return res.status(400).send({ errors: "Nehuma postagem até o momento" });
+    }
+
+    res.status(200).send(news);
   } catch (error) {
     res.status(500).send({ errors: error.message });
   }
