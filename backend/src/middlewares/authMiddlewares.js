@@ -33,10 +33,10 @@ const authMiddleware = (req, res, next) => {
         return res.status(401).send({ errors: "Token Inválido" });
       }
 
-      req.userId = user;
-    });
+      req.userId = user._id;
 
-    next();
+      next();
+    });
   } catch (error) {
     return res.send(500);
   }
