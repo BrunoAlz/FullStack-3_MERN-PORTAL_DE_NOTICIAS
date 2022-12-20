@@ -19,6 +19,13 @@ const postSearchService = (title) =>
     .sort({ _id: -1 })
     .populate("user");
 
+const postByUserService = (id) =>
+  News.find({
+    user: id,
+  })
+    .sort({ _id: -1 })
+    .populate("user");
+
 module.exports = {
   postCreateService,
   postGetAllService,
@@ -26,4 +33,5 @@ module.exports = {
   postTopNewService,
   postGetByIdService,
   postSearchService,
+  postByUserService,
 };
