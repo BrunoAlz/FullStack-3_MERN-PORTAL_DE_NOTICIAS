@@ -10,5 +10,6 @@ router.get("/Search", newsController.postSearchController);
 router.get("/ByUser", authMiddleware, newsController.postByUserController);
 
 router.get("/:id", newsController.postGetByIdController);
+router.get("/Update/:id", authMiddleware, newsController.postUpdateController);
 
 module.exports = router;
