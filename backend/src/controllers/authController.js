@@ -16,9 +16,9 @@ const loginController = async (req, res) => {
       return res.status(402).send({ errors: "Credenciais Inválidas" });
     }
 
-    const token = authService.generateTokenService(user._id)
+    const token = authService.generateTokenService(user._id);
 
-    res.send({token});
+    res.send({ user, token });
   } catch (error) {
     res.send(error.message);
   }
