@@ -7,5 +7,6 @@ router.post("/Create", authMiddleware, newsController.postCreateController);
 router.get("/List", newsController.postGetAllController);
 router.get("/Top", newsController.postTopController);
 router.get("/:id", newsController.postGetByIdController);
+router.get("/:search", newsController.postSearchControler);
 
 module.exports = router;
