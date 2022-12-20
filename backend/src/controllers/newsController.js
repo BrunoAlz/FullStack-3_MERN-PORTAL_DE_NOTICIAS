@@ -186,6 +186,11 @@ const postByUserController = async (req, res) => {
   }
 };
 
+const postUpdateController = async (req, res) => {
+  
+};
+
+
 module.exports = {
   postCreateController,
   postGetAllController,
@@ -193,4 +198,5 @@ module.exports = {
   postGetByIdController,
   postSearchController,
   postByUserController,
+  postUpdateController,
 };
