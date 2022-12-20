@@ -12,10 +12,18 @@ const postTopNewService = () =>
 
 const postGetByIdService = (id) => News.findById(id).populate("user");
 
+const postSearchIdService = (title) =>
+  News.find({
+    title: { $regex: `${title || ""}`, $options: "i" },
+  })
+    .sort({ _id: -1 })
+    .populate("user");
+
 module.exports = {
   postCreateService,
   postGetAllService,
   postsCountService,
   postTopNewService,
   postGetByIdService,
+  postSearchIdService,
 };
