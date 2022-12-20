@@ -2,18 +2,20 @@ const newsService = require("../services/newsService");
 
 const postCreateController = async (req, res) => {
   try {
-    const { title, body, banner } = req.body;
+    const { title, text, banner } = req.body;
 
-    if (!title || !banner || !body) {
-      res.status(400).send({ errors: "Preencha todos os campos" });
+    if (!title || !text || !banner) {
+      return res.status(400).send({ errors: "Preencha todos os campos" });
     }
 
     await newsService.postCreateService({
       title,
-      body,
+      text,
       banner,
-      id: "1"
-    })
+      user: {_id: "639d2a7387e3c9bddcef459c"}
+    });
+
+    res.status(200).send("Post Criado")
   } catch (error) {
     res.status(500).send({ errors: error.message });
   }
