@@ -8,12 +8,12 @@ const loginController = async (req, res) => {
     const user = await authService.loginService(email);
 
     if (!user) {
-      return res.status(404).send({ errors: "Credenciais Inválidas" });
+      return res.status(401).send({ errors: "Credenciais Inválidas" });
     }
     const passwordIsValid = await bcrypt.compare(password, user.password);
 
     if (!passwordIsValid) {
-      return res.status(402).send({ errors: "Credenciais Inválidas" });
+      return res.status(401).send({ errors: "Credenciais Inválidas" });
     }
 
     const token = authService.generateTokenService(user._id);

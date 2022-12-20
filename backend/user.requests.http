@@ -7,13 +7,13 @@ POST {{apiurl}}Api/Users/Register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "José",
-    "username": "zezao",
-    "email": "zezao@gmail.com",
+    "name": "Bruno Alves",
+    "username": "BrunoAlz",
+    "email": "bruno6821@gmail.com",
     "password": "131288Brn@",
     "profileImage": "https://avatars.githubusercontent.com/u/58440875?v=4",
     "backgroundImage": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg",
-    "about": "DEV MONSTRO DO ML!"
+    "about": "DEV MONSTRO DA PM!"
   }
 
 ###

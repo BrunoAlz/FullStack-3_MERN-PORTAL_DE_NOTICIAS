@@ -12,7 +12,7 @@ const postCreateController = async (req, res) => {
       title,
       text,
       banner,
-      user: { _id: "639d2a7387e3c9bddcef459c" },
+      user: req.userId,
     });
 
     res.status(200).send("Post Criado");
@@ -23,7 +23,6 @@ const postCreateController = async (req, res) => {
 
 const postGetAllController = async (req, res) => {
   try {
-    
     const news = await newsService.postGetAllService();
     if (news.lenght === 0) {
       return res.status(400).send({ errors: "Nehuma postagem até o momento" });

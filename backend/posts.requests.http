@@ -5,7 +5,7 @@
 # 1- CRIANDO USUARIO
 POST {{apiurl}}Api/Posts/Create HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOWU0NzI0OTU4M2E1NTJkNGQyZjZiYyIsImlhdCI6MTY3MTUzMzg0OCwiZXhwIjoxNjcxNjIwMjQ4fQ.0QADQjxB0TYsnA1hv_rPlSIaDdFsyWk51_B3qqgP8Vs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTUzMDc4OSwiZXhwIjoxNjcxNjE3MTg5fQ.eXqbFc-A_aHdAuQsaPXB_EOAJwVaQQLOb-zegzwbNXE
 
 {
     "title": "Nova postagem MERN",

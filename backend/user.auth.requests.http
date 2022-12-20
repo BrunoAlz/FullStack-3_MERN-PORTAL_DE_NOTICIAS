@@ -7,7 +7,7 @@ POST {{apiurl}}Api/Users/Auth/Login HTTP/1.1
 content-type: application/json
 
 {
-    "email": "zezao@gmail.com",
+    "email": "bruno6821@gmail.com",
     "password": "131288Brn@"
 }
 
