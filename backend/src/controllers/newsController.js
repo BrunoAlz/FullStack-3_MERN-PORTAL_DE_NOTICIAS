@@ -15,9 +15,9 @@ const postCreateController = async (req, res) => {
       user: req.userId,
     });
 
-    res.status(200).send("Post Criado");
+    return res.status(200).send("Post Criado");
   } catch (error) {
-    res.status(500).send({ errors: error.message });
+    return res.status(500).send({ errors: error.message });
   }
 };
 
@@ -60,7 +60,7 @@ const postGetAllController = async (req, res) => {
       return res.status(400).send({ errors: "Nehuma postagem até o momento" });
     }
 
-    res.status(200).send({
+    return res.status(200).send({
       nextUrl,
       previousUrl,
       limit,
@@ -92,7 +92,7 @@ const postTopController = async (req, res) => {
       return res.status(404).send({ errors: "Nehuma postagem até o momento" });
     }
 
-    res.status(200).send({
+    return res.status(200).send({
       topNew: {
         id: topNew._id,
         title: topNew.title,
@@ -116,7 +116,7 @@ const postGetByIdController = async (req, res) => {
 
     const newId = await newsService.postGetByIdService(id);
 
-    res.status(200).send({
+    return res.status(200).send({
       new: {
         id: newId._id,
         title: newId.title,
@@ -146,7 +146,7 @@ const postSearchController = async (req, res) => {
         .send({ errors: "Não existes posts com esse título" });
     }
 
-    res.send({
+    return res.send({
       resuts: news.map((newsItem) => ({
         id: newsItem._id,
         title: newsItem.title,
@@ -164,7 +164,27 @@ const postSearchController = async (req, res) => {
   }
 };
 
-const postByUserController = async (req, res) => {};
+const postByUserController = async (req, res) => {
+  try {
+    const news = await newsService.postByUserService(req.userId);
+
+    return res.send({
+      resuts: news.map((newsItem) => ({
+        id: newsItem._id,
+        title: newsItem.title,
+        text: newsItem.text,
+        banner: newsItem.banner,
+        likes: newsItem.likes,
+        comments: newsItem.comments,
+        name: newsItem.user.name,
+        userName: newsItem.user.username,
+        profileImage: newsItem.user.profileImage,
+      })),
+    });
+  } catch (error) {
+    res.status(500).send({ errors: error.message });
+  }
+};
 
 module.exports = {
   postCreateController,

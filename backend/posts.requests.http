@@ -5,10 +5,10 @@
 # 1- CRIANDO UM POST
 POST {{apiurl}}Api/Posts/Create HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTUzMDc4OSwiZXhwIjoxNjcxNjE3MTg5fQ.eXqbFc-A_aHdAuQsaPXB_EOAJwVaQQLOb-zegzwbNXE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTUzMzQ3NCwiZXhwIjoxNjcxNjE5ODc0fQ.1fJcK2daNfR3i74jTKI8NX3ouS44BhfBBrjahburgBY
 
 {
-    "title": "Nova postagem MERN",
+    "title": "PYTHON",
     "text": "Mern stackk ",
     "banner": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg"
   }
@@ -19,6 +19,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlN
 GET {{apiurl}}Api/Posts/List HTTP/1.1
 
 ###
+# 2.1- LISTANDO POSTAGENS PAGINADAS
+GET {{apiurl}}Api/Posts/List?limit=5&offset=0 HTTP/1.1
+
+###
 
 # 3- BUSCANDO A ULTIMA POSTAGEM
 GET {{apiurl}}Api/Posts/Top HTTP/1.1
@@ -26,8 +30,15 @@ GET {{apiurl}}Api/Posts/Top HTTP/1.1
 ###
 
 # 4- BUSCANDO POST POR ID
-GET {{apiurl}}Api/Posts/63a195cd386591fbb13bdf51 HTTP/1.1
+GET {{apiurl}}Api/Posts/63a193ae03d11abcf9a35bcf HTTP/1.1
 
 ###
-# 4- BUSCANDO POST PELO TITULO
+
+# 5- BUSCANDO POST PELO TITULO
 GET {{apiurl}}Api/Posts/Search?title=Django HTTP/1.1
+
+###
+
+# 6- BUSCANDO POST DO USUÁRIO LOGADO
+GET {{apiurl}}Api/Posts/ByUser HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTUzMzQ3NCwiZXhwIjoxNjcxNjE5ODc0fQ.1fJcK2daNfR3i74jTKI8NX3ouS44BhfBBrjahburgBY
