@@ -84,7 +84,34 @@ const postGetAllController = async (req, res) => {
   }
 };
 
+const postTopController = async (req, res) => {
+  try {
+    const topNew = await newsService.postTopNewService();
+
+    if (!topNew) {
+      return res.status(404).send({ errors: "Nehuma postagem até o momento" });
+    }
+
+    res.status(200).send({
+      topNew: {
+        id: topNew._id,
+        title: topNew.title,
+        text: topNew.text,
+        banner: topNew.banner,
+        likes: topNew.likes,
+        comments: topNew.comments,
+        name: topNew.user.name,
+        userName: topNew.user.username,
+        profileImage: topNew.user.profileImage,
+      },
+    });
+  } catch (error) {
+    return res.status(404).send({ errors: error.message });
+  }
+};
+
 module.exports = {
   postCreateController,
   postGetAllController,
+  postTopController,
 };

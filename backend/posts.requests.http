@@ -2,7 +2,7 @@
 @apiurl = http://localhost:3000/
 
 # TESTANDO ENDPOINTS DOS USUÁRIOS
-# 1- CRIANDO USUARIO
+# 1- CRIANDO UM POST
 POST {{apiurl}}Api/Posts/Create HTTP/1.1
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTUzMDc4OSwiZXhwIjoxNjcxNjE3MTg5fQ.eXqbFc-A_aHdAuQsaPXB_EOAJwVaQQLOb-zegzwbNXE
@@ -15,27 +15,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlN
 
 ###
 
-# 2- LISTANDO USUÀRIOS CRIADOS
+# 2- LISTANDO TODAS POSTAGENS
 GET {{apiurl}}Api/Posts/List HTTP/1.1
 
 ###
 
-# 3- BUSCANDO USUÁRIO POR ID
-GET {{apiurl}}Api/Users/639d2a7387e3c9bddcef459c HTTP/1.1
-
-###
-
-# 4- ATUALIZANDO USUÁRIOS
-PATCH {{apiurl}}Api/Users/Atualizar/639d2a7387e3c9bddcef459c HTTP/1.1
-content-type: application/json
-
-{
-  "name": "Richard Alves Correia",
-  "username": "RichardAlz",
-  "email": "Richard@gmail.com",
-  "profileImage": "https://avatars.githubusercontent.com/u/58440875?v=4",
-  "backgroundImage": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg",
-  "about": "Jogador de FriFAsS!!"
-}
+# 3- BUSCANDO A ULTIMA POSTAGEM
+GET {{apiurl}}Api/Posts/Top HTTP/1.1
 
 ###
