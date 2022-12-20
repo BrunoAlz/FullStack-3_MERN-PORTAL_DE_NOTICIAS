@@ -10,7 +10,7 @@ const postsCountService = () => News.countDocuments();
 const postTopNewService = () =>
   News.findOne().sort({ _id: -1 }).populate("user");
 
-const postGetByIdService = (id) => News.findById(id);
+const postGetByIdService = (id) => News.findById(id).populate("user");
 
 module.exports = {
   postCreateService,
