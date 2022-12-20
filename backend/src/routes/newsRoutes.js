@@ -8,5 +8,6 @@ router.get("/List", newsController.postGetAllController);
 router.get("/Top", newsController.postTopController);
 router.get("/Search", newsController.postSearchController);
 router.get("/:id", newsController.postGetByIdController);
+router.get("/ByUser", authMiddleware, newsController.postByUserController);
 
 module.exports = router;
