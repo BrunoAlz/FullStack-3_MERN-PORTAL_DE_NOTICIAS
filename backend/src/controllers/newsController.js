@@ -134,9 +134,12 @@ const postGetByIdController = async (req, res) => {
   }
 };
 
+const postSearchControler = async (req, res) => {};
+
 module.exports = {
   postCreateController,
   postGetAllController,
   postTopController,
   postGetByIdController,
+  postSearchControler,
 };
