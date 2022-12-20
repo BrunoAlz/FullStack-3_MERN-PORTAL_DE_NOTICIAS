@@ -24,3 +24,6 @@ GET {{apiurl}}Api/Posts/List HTTP/1.1
 GET {{apiurl}}Api/Posts/Top HTTP/1.1
 
 ###
+
+# 4- BUSCANDO POST POR ID
+GET {{apiurl}}Api/Posts/63a195cd386591fbb13bdf51 HTTP/1.1

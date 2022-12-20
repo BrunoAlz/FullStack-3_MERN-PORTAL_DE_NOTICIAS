@@ -110,7 +110,29 @@ const postTopController = async (req, res) => {
   }
 };
 
-const postGetByIdController = async (req, res) => {};
+const postGetByIdController = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const newId = await newsService.postGetByIdService(id);
+
+    res.status(200).send({
+      new: {
+        id: newId._id,
+        title: newId.title,
+        text: newId.text,
+        banner: newId.banner,
+        likes: newId.likes,
+        comments: newId.comments,
+        name: newId.user.name,
+        userName: newId.user.username,
+        profileImage: newId.user.profileImage,
+      },
+    });
+  } catch (error) {
+    return res.status(500).send({ errors: error.message });
+  }
+};
 
 module.exports = {
   postCreateController,
