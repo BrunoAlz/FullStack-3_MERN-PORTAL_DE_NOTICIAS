@@ -110,8 +110,11 @@ const postTopController = async (req, res) => {
   }
 };
 
+const postGetByIdController = async (req, res) => {};
+
 module.exports = {
   postCreateController,
   postGetAllController,
   postTopController,
+  postGetByIdController,
 };
