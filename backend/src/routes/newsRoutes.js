@@ -26,6 +26,13 @@ router.patch(
   newsController.postLikeController
 );
 
+router.patch(
+  "/Comentario/:id",
+  authMiddleware,
+  newsController.postAddCommentController
+);
+
+
 
 
 module.exports = router;
