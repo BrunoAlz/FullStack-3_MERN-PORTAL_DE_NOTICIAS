@@ -187,9 +187,29 @@ const postByUserController = async (req, res) => {
 };
 
 const postUpdateController = async (req, res) => {
-  
-};
+  try {
+    const { title, text, banner } = req.body;
+    const { id } = req.params;
 
+    if (!title && !text && !banner) {
+      res.status(400).send({
+        errors: "Você atualizar pelo menos um dos campos.",
+      });
+    }
+
+    const news = await newsService.postGetByIdService(id);
+    if (news.user.id != req.userId) {
+      res.status(400).send({
+        errors: "Você não pode atualizar esta Postagem.",
+      });
+    }
+
+    await newsService.postUpdateController(id, title, text, banner);
+    res.status(200).send("Post Atualizado com successo!.");
+  } catch (error) {
+    res.status(500).send({ errors: error.message });
+  }
+};
 
 module.exports = {
   postCreateController,
