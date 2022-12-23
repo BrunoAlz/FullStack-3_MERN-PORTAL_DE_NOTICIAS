@@ -62,3 +62,10 @@ DELETE {{apiurl}}Api/Posts/Deletar/63a1940403d11abcf9a35c02 HTTP/1.1
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTgwNDM0MiwiZXhwIjoxNjcxODkwNzQyfQ.8exuU04z0mzqrbYb5ch3SGZl3fa5U3B7UD5oljsMKyA
 
+###
+
+# 8- LIKE NO POST
+PATCH  {{apiurl}}Api/Posts/Like/63a1940403d11abcf9a35c02 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTgwNDM0MiwiZXhwIjoxNjcxODkwNzQyfQ.8exuU04z0mzqrbYb5ch3SGZl3fa5U3B7UD5oljsMKyA
+
