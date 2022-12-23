@@ -31,6 +31,15 @@ const postUpdateService = (id, title, text, banner) =>
 
 const postDeleteService = (id) => News.findByIdAndDelete({ _id: id });
 
+const postLikeService = (idNews, userId) =>
+  News.findByIdAndUpdate(
+    // Primeiro pega o Post pelo ID
+    // Dentro do post, vai no array de likes e verifica se o ID do usuário is not in
+    { _id: idNews, "likes.userId": {$nin: [userId]} },
+    // Se não tiver o usuário, adiciona o id, e a data do like
+    { $push: { likes: { userId, createdAt: new Date() } } }
+  );
+
 module.exports = {
   postCreateService,
   postGetAllService,
@@ -41,4 +50,5 @@ module.exports = {
   postByUserService,
   postUpdateService,
   postDeleteService,
+  postLikeService,
 };
