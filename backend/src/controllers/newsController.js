@@ -237,11 +237,15 @@ const postLikeController = async (req, res) => {
     const userId = req.userId;
 
     const postLike = await newsService.postLikeService(id, userId);
-    console.log(postLike);
-    return res.status(200).send("Post Laikado com successo!.");
+
+    if (!postLike) {
+      await newsService.postRemoveLikeService(id, userId);
+      return res.status(200).send({ message: "Curtida Removida." });
+    }
+    return res.status(200).send({ message: "Post Curtido." });
   } catch (error) {
     res.status(500).send({ errors: error.message });
-  }  
+  }
 };
 
 module.exports = {
