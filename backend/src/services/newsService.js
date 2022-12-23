@@ -55,6 +55,12 @@ const postAddCommentService = (idNews, comment, userId) => {
   );
 };
 
+const postDeleteCommentService = (idNews, idComment, userId) =>
+  News.findOneAndUpdate(
+    { _id: idNews },
+    { $pull: { comments: { idComment, userId } } }
+  );
+
 module.exports = {
   postCreateService,
   postGetAllService,
@@ -68,4 +74,5 @@ module.exports = {
   postLikeService,
   postRemoveLikeService,
   postAddCommentService,
+  postDeleteCommentService,
 };
