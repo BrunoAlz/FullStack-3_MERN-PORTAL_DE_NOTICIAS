@@ -27,10 +27,9 @@ const postByUserService = (id) =>
     .populate("user");
 
 const postUpdateService = (id, title, text, banner) =>
-  News.findByIdAndUpdate(
-    { _id: id },
-    { title, text, banner }
-  );
+  News.findByIdAndUpdate({ _id: id }, { title, text, banner });
+
+const postDeleteService = (id) => News.findByIdAndDelete({ _id: id });
 
 module.exports = {
   postCreateService,
@@ -41,4 +40,5 @@ module.exports = {
   postSearchService,
   postByUserService,
   postUpdateService,
+  postDeleteService,
 };
