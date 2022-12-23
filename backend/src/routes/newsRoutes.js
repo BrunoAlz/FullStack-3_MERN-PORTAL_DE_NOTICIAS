@@ -15,5 +15,11 @@ router.patch(
   authMiddleware,
   newsController.postUpdateController
 );
+router.delete(
+  "/Deletar/:id",
+  authMiddleware,
+  newsController.postDeleteController
+);
+
 
 module.exports = router;
