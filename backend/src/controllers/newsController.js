@@ -242,7 +242,8 @@ const postLikeController = async (req, res) => {
       await newsService.postRemoveLikeService(id, userId);
       return res.status(200).send({ message: "Curtida Removida." });
     }
-    return res.status(200).send({ message: "Post Curtido." });
+    
+    res.status(200).send({ message: "Post Curtido." });
   } catch (error) {
     res.status(500).send({ errors: error.message });
   }
