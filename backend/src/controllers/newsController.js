@@ -273,7 +273,26 @@ const postDeleteCommentController = async (req, res) => {
     const { idNews, idComment } = req.params;
     const userId = req.userId;
 
-    await newsService.postDeleteCommentService(idNews, idComment, userId);
+    const deletedComment = await newsService.postDeleteCommentService(
+      idNews,
+      idComment,
+      userId
+    );
+
+    const commentFInder = deletedComment.comments.find(
+      (comment) => comment.idComment === idComment
+    );
+
+    if (!commentFInder) {
+      return res.status(404).send({ message: "Comentário não encontrado" });
+    }
+
+    if (commentFInder.userId !== userId) {
+      return res
+        .status(400)
+        .send({ message: "Você não pode deletar este comentário." });
+    }
+
     res.status(200).send({ message: "Comentário removido" });
   } catch (error) {
     res.status(500).send({ errors: error.message });
