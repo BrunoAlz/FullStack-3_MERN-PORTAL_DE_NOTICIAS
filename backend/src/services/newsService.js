@@ -32,7 +32,7 @@ const postUpdateService = (id, title, text, banner) =>
 const postDeleteService = (id) => News.findByIdAndDelete({ _id: id });
 
 const postLikeService = (idNews, userId) =>
-  News.findByIdAndUpdate(
+  News.findOneAndUpdate(
     // Primeiro pega o Post pelo ID
     // Dentro do post, vai no array de likes e verifica se o ID do usuário is not in
     { _id: idNews, "likes.userId": { $nin: [userId] } },
@@ -41,7 +41,7 @@ const postLikeService = (idNews, userId) =>
   );
 
 const postRemoveLikeService = (idNews, userId) =>
-  News.findByIdAndUpdate({ _id: idNews }, { $pull: { likes: { userId } } });
+  News.findOneAndUpdate({ _id: idNews }, { $pull: { likes: { userId } } });
 
 module.exports = {
   postCreateService,
