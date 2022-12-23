@@ -253,7 +253,7 @@ const postAddCommentController = async (req, res) => {
   try {
     const { id } = req.params;
     const userId = req.userId;
-    const comment = req.body;
+    const { comment } = req.body;
 
     if (!comment) {
       return res
@@ -269,9 +269,16 @@ const postAddCommentController = async (req, res) => {
 };
 
 const postDeleteCommentController = async (req, res) => {
+  try {
+    const { idNews, idComment } = req.params;
+    const userId = req.userId;
 
+    await newsService.postDeleteCommentService(idNews, idComment, userId);
+    res.status(200).send({ message: "Comentário removido" });
+  } catch (error) {
+    res.status(500).send({ errors: error.message });
+  }
 };
-
 
 module.exports = {
   postCreateController,
