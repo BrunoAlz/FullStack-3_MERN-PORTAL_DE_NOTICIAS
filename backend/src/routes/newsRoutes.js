@@ -32,7 +32,11 @@ router.patch(
   newsController.postAddCommentController
 );
 
-
+router.patch(
+  "/Comentario/:idNews/Delete/:idComment",
+  authMiddleware,
+  newsController.postDeleteCommentController
+);
 
 
 module.exports = router;
