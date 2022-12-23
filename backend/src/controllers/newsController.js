@@ -242,8 +242,27 @@ const postLikeController = async (req, res) => {
       await newsService.postRemoveLikeService(id, userId);
       return res.status(200).send({ message: "Curtida Removida." });
     }
-    
+
     res.status(200).send({ message: "Post Curtido." });
+  } catch (error) {
+    res.status(500).send({ errors: error.message });
+  }
+};
+
+const postAddCommentController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userId = req.userId;
+    const comment = req.body;
+
+    if (!comment) {
+      return res
+        .status(400)
+        .send({ errors: "Você precisa escrever algo no comentário" });
+    }
+
+    await newsService.postAddCommentService(id, comment, userId);
+    res.status(200).send({ message: "Comentário enviado" });
   } catch (error) {
     res.status(500).send({ errors: error.message });
   }
@@ -259,4 +278,5 @@ module.exports = {
   postUpdateController,
   postDeleteController,
   postLikeController,
+  postAddCommentController,
 };
