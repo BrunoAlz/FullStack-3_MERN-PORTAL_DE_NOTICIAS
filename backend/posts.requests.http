@@ -55,3 +55,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlN
   "text": "MERN E DRF STACK ",
   "banner": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg"
 }
+###
+
+# 8- DELETANDO POSTS
+DELETE {{apiurl}}Api/Posts/Deletar/63a1940403d11abcf9a35c02 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTgwNDM0MiwiZXhwIjoxNjcxODkwNzQyfQ.8exuU04z0mzqrbYb5ch3SGZl3fa5U3B7UD5oljsMKyA
+
