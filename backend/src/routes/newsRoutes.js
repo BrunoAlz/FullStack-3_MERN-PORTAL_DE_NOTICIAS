@@ -20,6 +20,12 @@ router.delete(
   authMiddleware,
   newsController.postDeleteController
 );
+router.patch(
+  "/Like/:id",
+  authMiddleware,
+  newsController.postDeleteController
+);
+
 
 
 module.exports = router;
