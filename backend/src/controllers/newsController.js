@@ -231,8 +231,18 @@ const postDeleteController = async (req, res) => {
   }
 };
 
-const postLikeController = async (req, res) => {};
+const postLikeController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userId = req.userId;
 
+    const postLike = await newsService.postLikeService(id, userId);
+    console.log(postLike);
+    return res.status(200).send("Post Laikado com successo!.");
+  } catch (error) {
+    res.status(500).send({ errors: error.message });
+  }  
+};
 
 module.exports = {
   postCreateController,
