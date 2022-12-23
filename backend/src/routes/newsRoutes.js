@@ -23,7 +23,7 @@ router.delete(
 router.patch(
   "/Like/:id",
   authMiddleware,
-  newsController.postDeleteController
+  newsController.postLikeController
 );
 
 
