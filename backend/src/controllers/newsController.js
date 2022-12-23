@@ -212,6 +212,25 @@ const postUpdateController = async (req, res) => {
   }
 };
 
+const postDeleteController = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const news = await newsService.postGetByIdService(id);
+
+    if (news.user.id != req.userId) {
+      return res.status(400).send({
+        errors: "Você não pode Deletar esta Postagem.",
+      });
+    }
+
+    await newsService.postDeleteService(id);
+    return res.status(200).send("Post Deletado com successo!.");
+  } catch (error) {
+    res.status(500).send({ errors: error.message });
+  }
+};
+
 module.exports = {
   postCreateController,
   postGetAllController,
@@ -220,4 +239,5 @@ module.exports = {
   postSearchController,
   postByUserController,
   postUpdateController,
+  postDeleteController,
 };
