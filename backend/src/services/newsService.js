@@ -29,8 +29,7 @@ const postByUserService = (id) =>
 const postUpdateService = (id, title, text, banner) =>
   News.findByIdAndUpdate(
     { _id: id },
-    { title, text, banner },
-    { rawResult: true }
+    { title, text, banner }
   );
 
 module.exports = {

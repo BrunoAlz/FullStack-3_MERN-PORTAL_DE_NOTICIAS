@@ -5,7 +5,7 @@
 # 1- CRIANDO UM POST
 POST {{apiurl}}Api/Posts/Create HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTUzMzQ3NCwiZXhwIjoxNjcxNjE5ODc0fQ.1fJcK2daNfR3i74jTKI8NX3ouS44BhfBBrjahburgBY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTgwNDM0MiwiZXhwIjoxNjcxODkwNzQyfQ.8exuU04z0mzqrbYb5ch3SGZl3fa5U3B7UD5oljsMKyA
 
 {
     "title": "PYTHON",
@@ -41,16 +41,17 @@ GET {{apiurl}}Api/Posts/Search?title=Django HTTP/1.1
 
 # 6- BUSCANDO POST DO USUÁRIO LOGADO
 GET {{apiurl}}Api/Posts/ByUser HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTUzMzQ3NCwiZXhwIjoxNjcxNjE5ODc0fQ.1fJcK2daNfR3i74jTKI8NX3ouS44BhfBBrjahburgBY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTgwNDM0MiwiZXhwIjoxNjcxODkwNzQyfQ.8exuU04z0mzqrbYb5ch3SGZl3fa5U3B7UD5oljsMKyA
 
 ###
 
 # 7- ATUALIZANDO POSTS
-PATCH {{apiurl}}Api/Posts/Update/63a1940403d11abcf9a35c02 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTUzMzQ3NCwiZXhwIjoxNjcxNjE5ODc0fQ.1fJcK2daNfR3i74jTKI8NX3ouS44BhfBBrjahburgBY
+PATCH {{apiurl}}Api/Posts/Atualizar/63a1940403d11abcf9a35c02 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTE4OTFlNTQwMTczYmFjMDljODMzZiIsImlhdCI6MTY3MTgwNDM0MiwiZXhwIjoxNjcxODkwNzQyfQ.8exuU04z0mzqrbYb5ch3SGZl3fa5U3B7UD5oljsMKyA
 
 {
-  "title": "PYTHON ATUALLIZADOOO",
+  "title": "PYTHON ATUALLIZAOO",
   "text": "MERN E DRF STACK ",
   "banner": "https://www.imaginarycloud.com/blog/content/images/2022/03/VS--1-.jpg"
 }

@@ -11,7 +11,7 @@ router.get("/ByUser", authMiddleware, newsController.postByUserController);
 
 router.get("/:id", newsController.postGetByIdController);
 router.patch(
-  "/Update/:id",
+  "/Atualizar/:id",
   authMiddleware,
   newsController.postUpdateController
 );
