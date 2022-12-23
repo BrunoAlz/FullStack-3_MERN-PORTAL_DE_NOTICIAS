@@ -231,6 +231,9 @@ const postDeleteController = async (req, res) => {
   }
 };
 
+const postLikeController = async (req, res) => {};
+
+
 module.exports = {
   postCreateController,
   postGetAllController,
@@ -240,4 +243,5 @@ module.exports = {
   postByUserController,
   postUpdateController,
   postDeleteController,
+  postLikeController,
 };
