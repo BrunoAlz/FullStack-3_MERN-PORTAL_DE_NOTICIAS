@@ -1,0 +1,241 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Noticias API",
+        "description": "Api de Noticias",
+        "contact": {
+            "email": "bruno6821@gmail.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Local server"
+        }
+    ],
+    "paths": {
+        "/Api/Users/Register": {
+            "post": {
+                "summary": "Create a new user",
+                "description": "Route responsible for creating a new user",
+                "tags": [
+                    "Users"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/models/User"
+                            },
+                            "examples": {
+                                "Users": {
+                                    "value": {
+                                        "name": "Teste 1",
+                                        "username": "Teste",
+                                        "email": "teste@gmail.com",
+                                        "password": "1234567",
+                                        "profileImage": "https://i.imgur.com/Ry1cb5M.png",
+                                        "backgroundImage": "https://images.wallpapersden.com/image/download/triangle-8k-blue-pattern_bGZlbmiUmZqaraWkpJRmbmdlrWZlbWU.jpg"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400": {
+                        "description": "Not Found"
+                    },
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schemma": {
+                                    "type": "object",
+                                    "$ref": "#/models/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Api/Users/List": {
+            "get": {
+                "summary": "Search all users",
+                "description": "Route responsible for fetching all users",
+                "tags": [
+                    "Users"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "400": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Api/Users/{id}": {
+            "get": {
+                "summary": "Search user by id",
+                "description": "Route responsible for searching for user by id",
+                "tags": [
+                    "Users"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "description": "User ID",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "400": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Api/Users/Atualizar/{id}": {
+            "patch": {
+                "summary": "Update user by id",
+                "description": "Route responsible for editing the user by id",
+                "tags": [
+                    "Users"
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "description": "User ID",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            },
+                            "examples": {
+                                "Users": {
+                                    "value": {
+                                        "name": "Thiago Lima"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "400": {
+                        "description": "Not Found"
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Api/Users/Auth/Login": {"post": {
+            "summary": "Login to Breaking News",
+            "description": "Route responsible for logging in a registered user",
+            "tags": ["Auth"],
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  },
+                  "examples": {
+                    "User": {
+                      "value": {
+                        "email": "clima@gmail.com",
+                        "password": "1234567"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "responses": {
+              "400": {
+                "description": "Not Found"
+              },
+              "200": {
+                "description": "OK"
+              }
+            }
+          }},
+        "/Api/Posts/Create": {},
+        "/Api/Posts/List": {},
+        "/Api/Posts/Top": {},
+        "/Api/Posts/{id}": {},
+        "/Api/Posts/Search": {},
+        "/Api/Posts/ByUser": {},
+        "/Api/Posts/Atualizar/{id}": {},
+        "/Api/Posts/Deletar/{id}": {},
+        "/Api/Posts/Like/{id}": {},
+        "/Api/Posts/Comentario/{id}": {},
+        "/Api/Posts/Comentario/{idNews}/Delete/{idComment}": {}
+    },
+    "components": {}
+}
