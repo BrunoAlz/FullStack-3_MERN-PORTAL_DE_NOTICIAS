@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import logo from "../../images/logo.png"
 
 const Navbar = () => {
   return (
@@ -9,7 +10,7 @@ const Navbar = () => {
           <input type="text" placeholder="Pesquise por um título" />
         </div>
 
-        {/* <img src={logo} alt="Logo do Breaking News" /> */}
+        <img src={logo} alt="Logo do Breaking News" />
 
         <button>Entrar</button>
       </nav>
