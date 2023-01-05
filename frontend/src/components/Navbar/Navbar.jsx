@@ -1,5 +1,6 @@
 import "./Navbar.css";
-import logo from "../../images/logo.png"
+import logo from "../../images/logo.png";
+import styled from "styled-components";
 
 const Navbar = () => {
   return (
@@ -15,7 +16,11 @@ const Navbar = () => {
         <button>Entrar</button>
       </nav>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
+
+const Button = styled.button`
+
+`
