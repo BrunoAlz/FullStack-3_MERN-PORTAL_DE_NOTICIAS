@@ -1,20 +1,19 @@
-import "./Navbar.css";
 import logo from "../../images/logo.png";
-import { Button } from "./NavBarStyled";
+import { Button, ImageLogo, InputSpace, Nav } from "./NavBarStyled";
 
 const Navbar = () => {
   return (
     <>
-      <nav>
-        <div className="input-search-space">
+      <Nav>
+        <InputSpace className="input-search-space">
           <i className="bi bi-search"></i>
           <input type="text" placeholder="Pesquise por um título" />
-        </div>
+        </InputSpace>
 
-        <img src={logo} alt="Logo do Breaking News" />
+        <ImageLogo src={logo} alt="Logo do Breaking News" />
 
         <Button>Entrar</Button>
-      </nav>
+      </Nav>
     </>
   );
 };
